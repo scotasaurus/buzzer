@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5BDE32F9-F139-4305-A35A-0484DFD881E9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Buzzer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>65370128-936A-4B08-BF45-7A5F86170521</key>
+		<string>https://github.com/scotasaurus/buzzer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Buzzer/Buzzer.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>65370128-936A-4B08-BF45-7A5F86170521</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/scotasaurus/buzzer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>65370128-936A-4B08-BF45-7A5F86170521</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>65370128-936A-4B08-BF45-7A5F86170521</string>
+			<key>IDESourceControlWCCName</key>
+			<string>buzzer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
