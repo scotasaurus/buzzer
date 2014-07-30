@@ -15,8 +15,8 @@
 		25FC967019882DFB00610EC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC966F19882DFB00610EC8 /* AppDelegate.m */; };
 		25FC967319882DFB00610EC8 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FC967119882DFB00610EC8 /* Main_iPhone.storyboard */; };
 		25FC967619882DFB00610EC8 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FC967419882DFB00610EC8 /* Main_iPad.storyboard */; };
-		25FC967919882DFB00610EC8 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC967819882DFB00610EC8 /* FirstViewController.m */; };
-		25FC967C19882DFB00610EC8 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC967B19882DFB00610EC8 /* SecondViewController.m */; };
+		25FC967919882DFB00610EC8 /* BZZWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC967819882DFB00610EC8 /* BZZWelcomeViewController.m */; };
+		25FC967C19882DFB00610EC8 /* BZZMeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC967B19882DFB00610EC8 /* BZZMeetingsViewController.m */; };
 		25FC967E19882DFB00610EC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25FC967D19882DFB00610EC8 /* Images.xcassets */; };
 		25FC968519882DFB00610EC8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC968419882DFB00610EC8 /* XCTest.framework */; };
 		25FC968619882DFB00610EC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC965F19882DFB00610EC8 /* Foundation.framework */; };
@@ -29,6 +29,7 @@
 		25FC96A11988593500610EC8 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC969F1988593500610EC8 /* Meeting.m */; };
 		25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96A319885BDB00610EC8 /* MeetingRequest.m */; };
 		25FC96A519885BDB00610EC8 /* MeetingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96A319885BDB00610EC8 /* MeetingRequest.m */; };
+		7558B89319896B7600611AD4 /* BZZBuzzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7558B89219896B7600611AD4 /* BZZBuzzViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +55,10 @@
 		25FC966F19882DFB00610EC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		25FC967219882DFB00610EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		25FC967519882DFB00610EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		25FC967719882DFB00610EC8 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		25FC967819882DFB00610EC8 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		25FC967A19882DFB00610EC8 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		25FC967B19882DFB00610EC8 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		25FC967719882DFB00610EC8 /* BZZWelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BZZWelcomeViewController.h; sourceTree = "<group>"; };
+		25FC967819882DFB00610EC8 /* BZZWelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BZZWelcomeViewController.m; sourceTree = "<group>"; };
+		25FC967A19882DFB00610EC8 /* BZZMeetingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BZZMeetingsViewController.h; sourceTree = "<group>"; };
+		25FC967B19882DFB00610EC8 /* BZZMeetingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BZZMeetingsViewController.m; sourceTree = "<group>"; };
 		25FC967D19882DFB00610EC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		25FC968319882DFB00610EC8 /* BuzzerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuzzerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FC968419882DFB00610EC8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -71,6 +72,8 @@
 		25FC96A219885BDB00610EC8 /* MeetingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingRequest.h; path = Model/MeetingRequest.h; sourceTree = "<group>"; };
 		25FC96A319885BDB00610EC8 /* MeetingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingRequest.m; path = Model/MeetingRequest.m; sourceTree = "<group>"; };
 		25FC96A619887F0000610EC8 /* ServiceRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceRequestDelegate.h; path = Model/ServiceRequestDelegate.h; sourceTree = "<group>"; };
+		7558B89119896B7600611AD4 /* BZZBuzzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZZBuzzViewController.h; sourceTree = "<group>"; };
+		7558B89219896B7600611AD4 /* BZZBuzzViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZZBuzzViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +137,12 @@
 				25FC966F19882DFB00610EC8 /* AppDelegate.m */,
 				25FC967119882DFB00610EC8 /* Main_iPhone.storyboard */,
 				25FC967419882DFB00610EC8 /* Main_iPad.storyboard */,
-				25FC967719882DFB00610EC8 /* FirstViewController.h */,
-				25FC967819882DFB00610EC8 /* FirstViewController.m */,
-				25FC967A19882DFB00610EC8 /* SecondViewController.h */,
-				25FC967B19882DFB00610EC8 /* SecondViewController.m */,
+				25FC967719882DFB00610EC8 /* BZZWelcomeViewController.h */,
+				25FC967819882DFB00610EC8 /* BZZWelcomeViewController.m */,
+				25FC967A19882DFB00610EC8 /* BZZMeetingsViewController.h */,
+				25FC967B19882DFB00610EC8 /* BZZMeetingsViewController.m */,
+				7558B89119896B7600611AD4 /* BZZBuzzViewController.h */,
+				7558B89219896B7600611AD4 /* BZZBuzzViewController.m */,
 				25FC967D19882DFB00610EC8 /* Images.xcassets */,
 				25FC966619882DFB00610EC8 /* Supporting Files */,
 				25FC969A1988371800610EC8 /* BaseRequest.h */,
@@ -278,11 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25FC967C19882DFB00610EC8 /* SecondViewController.m in Sources */,
+				25FC967C19882DFB00610EC8 /* BZZMeetingsViewController.m in Sources */,
 				25FC96A01988593500610EC8 /* Meeting.m in Sources */,
+				7558B89319896B7600611AD4 /* BZZBuzzViewController.m in Sources */,
 				25FC967019882DFB00610EC8 /* AppDelegate.m in Sources */,
 				25FC969C1988371800610EC8 /* BaseRequest.m in Sources */,
-				25FC967919882DFB00610EC8 /* FirstViewController.m in Sources */,
+				25FC967919882DFB00610EC8 /* BZZWelcomeViewController.m in Sources */,
 				25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */,
 				25FC966C19882DFB00610EC8 /* main.m in Sources */,
 			);

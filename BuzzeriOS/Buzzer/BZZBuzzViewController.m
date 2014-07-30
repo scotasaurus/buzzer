@@ -1,18 +1,14 @@
 //
-//  SecondViewController.m
+//  BZZBuzzViewController.m
 //  Buzzer
 //
-//  Created by Scot McIntosh on 7/29/14.
+//  Created by rdaly on 7/30/14.
 //  Copyright (c) 2014 ___SKUNKd___. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "BZZBuzzViewController.h"
 
-@interface SecondViewController ()
-
-@end
-
-@implementation SecondViewController
+@implementation BZZBuzzViewController
 
 - (void)viewDidLoad
 {
@@ -25,5 +21,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

@@ -21,6 +21,7 @@
 
 
 - (NSArray *)getMeetings {
+    
     NSMutableArray * meetings = nil;
     
     NSDictionary * jsonData = [self getDataFromResponse];

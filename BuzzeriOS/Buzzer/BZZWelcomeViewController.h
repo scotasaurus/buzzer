@@ -12,7 +12,7 @@
 #import "MeetingRequest.h"
 #import "ServiceRequestDelegate.h"
 
-@interface FirstViewController : UIViewController
+@interface BZZWelcomeViewController : UIViewController
 
 
 // TODO: Remove

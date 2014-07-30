@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 ___SKUNKd___. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "BZZWelcomeViewController.h"
 
-@interface FirstViewController ()
+@interface BZZWelcomeViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation BZZWelcomeViewController
 
 - (void)viewDidLoad
 {

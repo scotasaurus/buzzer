@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  BZZMeetingsViewController.h
 //  Buzzer
 //
 //  Created by Scot McIntosh on 7/29/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface BZZMeetingsViewController : UITableViewController
 
 @end
