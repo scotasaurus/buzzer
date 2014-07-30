@@ -32,6 +32,8 @@
 		25FC96B419897DA500610EC8 /* DeviceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96B219897DA500610EC8 /* DeviceRequest.m */; };
 		25FC96B719897E1A00610EC8 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96B619897E1A00610EC8 /* Device.m */; };
 		7558B89319896B7600611AD4 /* BZZBuzzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7558B89219896B7600611AD4 /* BZZBuzzViewController.m */; };
+		75FD0995198985350031E0E6 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FD0994198985350031E0E6 /* UIView+Additions.m */; };
+		75FD0999198985F10031E0E6 /* BZZTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FD0998198985F10031E0E6 /* BZZTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,10 @@
 		25FC96B619897E1A00610EC8 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Device.m; path = Model/Device.m; sourceTree = "<group>"; };
 		7558B89119896B7600611AD4 /* BZZBuzzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZZBuzzViewController.h; sourceTree = "<group>"; };
 		7558B89219896B7600611AD4 /* BZZBuzzViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZZBuzzViewController.m; sourceTree = "<group>"; };
+		75FD0993198985350031E0E6 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		75FD0994198985350031E0E6 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		75FD0997198985F10031E0E6 /* BZZTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZZTextField.h; sourceTree = "<group>"; };
+		75FD0998198985F10031E0E6 /* BZZTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZZTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,9 @@
 				25FC967B19882DFB00610EC8 /* BZZMeetingsViewController.m */,
 				7558B89119896B7600611AD4 /* BZZBuzzViewController.h */,
 				7558B89219896B7600611AD4 /* BZZBuzzViewController.m */,
+				75FD0997198985F10031E0E6 /* BZZTextField.h */,
+				75FD0998198985F10031E0E6 /* BZZTextField.m */,
+				75FD09961989857D0031E0E6 /* Categories */,
 				25FC967D19882DFB00610EC8 /* Images.xcassets */,
 				25FC966619882DFB00610EC8 /* Supporting Files */,
 				25FC969A1988371800610EC8 /* BaseRequest.h */,
@@ -193,6 +202,15 @@
 				25FC968D19882DFB00610EC8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75FD09961989857D0031E0E6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				75FD0993198985350031E0E6 /* UIView+Additions.h */,
+				75FD0994198985350031E0E6 /* UIView+Additions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,11 +315,13 @@
 				25FC96A01988593500610EC8 /* Meeting.m in Sources */,
 				7558B89319896B7600611AD4 /* BZZBuzzViewController.m in Sources */,
 				25FC96B719897E1A00610EC8 /* Device.m in Sources */,
+				75FD0999198985F10031E0E6 /* BZZTextField.m in Sources */,
 				25FC967019882DFB00610EC8 /* AppDelegate.m in Sources */,
 				25FC969C1988371800610EC8 /* BaseRequest.m in Sources */,
 				25FC967919882DFB00610EC8 /* BZZWelcomeViewController.m in Sources */,
 				25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */,
 				25FC96B419897DA500610EC8 /* DeviceRequest.m in Sources */,
+				75FD0995198985350031E0E6 /* UIView+Additions.m in Sources */,
 				25FC966C19882DFB00610EC8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
