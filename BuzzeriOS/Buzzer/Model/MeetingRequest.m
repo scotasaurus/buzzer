@@ -27,15 +27,36 @@
     NSDictionary * jsonData = [self getDataFromResponse];
     if (jsonData != nil)
     {
-        NSArray * rawMeetingsData = jsonData[@"Meetings"];
-        for (NSDictionary *meetingData in rawMeetingsData)
+        NSArray * rawSessionData = jsonData[@"Sessions"];
+        for (NSDictionary *sessionData in rawSessionData)
         {
             if (meetings == nil) {
                 meetings = [[NSMutableArray alloc] init];
             }
             
-            Meeting * meeting = [[Meeting alloc] initWithName:meetingData[@"name"]
-                                                   andCreator:meetingData[@"creator"]];
+            NSDictionary *parentDeviceData = sessionData[@"parentDevice"];
+            Device * creatorDevice = [[Device alloc] initDevicewithId:parentDeviceData[@"id"]
+                                                              andName:parentDeviceData[@"name"]
+                                                              andInfo:parentDeviceData[@"deviceInfo"]
+                                                             andOwner:parentDeviceData[@"deviceOwner"]
+                                                            andStream:parentDeviceData[@"stream"]];
+            
+            NSMutableArray *deviceList = [[NSMutableArray alloc] init];
+            NSArray *rawClientList = sessionData[@"devices"];
+            for (NSDictionary *deviceData in rawClientList) {
+                Device * device = [[Device alloc] initDevicewithId:deviceData[@"id"]
+                                                           andName:deviceData[@"name"]
+                                                           andInfo:deviceData[@"deviceInfo"]
+                                                          andOwner:deviceData[@"deviceOwner"]
+                                                         andStream:deviceData[@"stream"]];
+                [deviceList addObject:device];
+            }
+            
+            NSDictionary *meetingData = sessionData[@"meeting"];
+            Meeting * meeting = [[Meeting alloc] initWithId:meetingData[@"id"]
+                                                    andName:meetingData[@"name"]
+                                                 andCreator:creatorDevice
+                                                 andClients:deviceList];
             [meetings addObject:meeting];
 
         }
