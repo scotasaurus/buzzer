@@ -15,7 +15,7 @@ static NSString * twoParameterApi = @"%@%@/%@/%@";
 
 
 @implementation MeetingRequest
-    
+
 - (void)getMeetingsAsync {
     NSString *urlString = [[NSString alloc] initWithFormat:noParameterApi, baseUrl, getAllMeetingsRequestUrl];
     [super makeRequest:urlString];
@@ -51,30 +51,19 @@ static NSString * twoParameterApi = @"%@%@/%@/%@";
     [super makeRequest:urlString];
 }
 
-<<<<<<< HEAD
-- (NSArray *)getMeetings {
-    
-=======
 - (NSArray *)processGetAllMeetingsResponse {
->>>>>>> FETCH_HEAD
     NSMutableArray * meetings = nil;
     
     NSDictionary * jsonData = [self getDataFromResponse];
     if (jsonData != nil)
     {
-        NSArray * rawMeetingsData = jsonData[@"Meetings"];
-        for (NSDictionary *meetingData in rawMeetingsData)
+        NSArray * rawSessionData = jsonData[@"Sessions"];
+        for (NSDictionary *sessionData in rawSessionData)
         {
             if (meetings == nil) {
                 meetings = [[NSMutableArray alloc] init];
             }
-<<<<<<< HEAD
-            
-            Meeting * meeting = [[Meeting alloc] initWithName:meetingData[@"name"]
-                                                   andCreator:meetingData[@"creator"]];
-=======
             Meeting * meeting = [self _parseSessionDataFromDictionary:sessionData];
->>>>>>> FETCH_HEAD
             [meetings addObject:meeting];
         }
     }

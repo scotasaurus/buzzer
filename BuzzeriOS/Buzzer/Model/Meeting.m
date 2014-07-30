@@ -10,11 +10,14 @@
 
 @implementation Meeting
 
-- (id)initWithName:(NSString *)nameValue andCreator:(NSString *)creatorValue {
+- (id)initWithId:(NSString *)meetingId andName:(NSString *)meetingName andCreator:(Device *)meetingCreator andClients:(NSArray *)meetingClients {
     self = [super init];
     if (self) {
-        _name = nameValue;
-        _creator = creatorValue;
+        _id = meetingId;
+        _name = meetingName;
+        _creator = meetingCreator;
+        _clients = meetingClients;
+        
     }
     
     return self;
