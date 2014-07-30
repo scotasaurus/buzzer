@@ -17,10 +17,6 @@ static NSString const * signalMeetingRequestUrl     = @"api/sessions/SignalMeeti
 static NSString const * leaveMeetingRequestUrl      = @"api/sessions/LeaveMeeting";
 static NSString const * removeMeetingRequestUrl     = @"api/sessions/RemoveMeeting";
 
-<<<<<<< HEAD
-static NSString const * meetingRequestUrl = @"name/name/creator/creator";
-=======
->>>>>>> FETCH_HEAD
 
 @interface MeetingRequest : BaseRequest
 
