@@ -23,6 +23,12 @@
 		25FC968719882DFB00610EC8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25FC966319882DFB00610EC8 /* UIKit.framework */; };
 		25FC968F19882DFB00610EC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25FC968D19882DFB00610EC8 /* InfoPlist.strings */; };
 		25FC969119882DFB00610EC8 /* BuzzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC969019882DFB00610EC8 /* BuzzerTests.m */; };
+		25FC969C1988371800610EC8 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC969B1988371800610EC8 /* BaseRequest.m */; };
+		25FC969D1988371800610EC8 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC969B1988371800610EC8 /* BaseRequest.m */; };
+		25FC96A01988593500610EC8 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC969F1988593500610EC8 /* Meeting.m */; };
+		25FC96A11988593500610EC8 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC969F1988593500610EC8 /* Meeting.m */; };
+		25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96A319885BDB00610EC8 /* MeetingRequest.m */; };
+		25FC96A519885BDB00610EC8 /* MeetingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96A319885BDB00610EC8 /* MeetingRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +64,13 @@
 		25FC968C19882DFB00610EC8 /* BuzzerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BuzzerTests-Info.plist"; sourceTree = "<group>"; };
 		25FC968E19882DFB00610EC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		25FC969019882DFB00610EC8 /* BuzzerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuzzerTests.m; sourceTree = "<group>"; };
+		25FC969A1988371800610EC8 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseRequest.h; path = Model/BaseRequest.h; sourceTree = "<group>"; };
+		25FC969B1988371800610EC8 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseRequest.m; path = Model/BaseRequest.m; sourceTree = "<group>"; };
+		25FC969E1988593500610EC8 /* Meeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Meeting.h; path = Model/Meeting.h; sourceTree = "<group>"; };
+		25FC969F1988593500610EC8 /* Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Meeting.m; path = Model/Meeting.m; sourceTree = "<group>"; };
+		25FC96A219885BDB00610EC8 /* MeetingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingRequest.h; path = Model/MeetingRequest.h; sourceTree = "<group>"; };
+		25FC96A319885BDB00610EC8 /* MeetingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingRequest.m; path = Model/MeetingRequest.m; sourceTree = "<group>"; };
+		25FC96A619887F0000610EC8 /* ServiceRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceRequestDelegate.h; path = Model/ServiceRequestDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +140,13 @@
 				25FC967B19882DFB00610EC8 /* SecondViewController.m */,
 				25FC967D19882DFB00610EC8 /* Images.xcassets */,
 				25FC966619882DFB00610EC8 /* Supporting Files */,
+				25FC969A1988371800610EC8 /* BaseRequest.h */,
+				25FC969B1988371800610EC8 /* BaseRequest.m */,
+				25FC969E1988593500610EC8 /* Meeting.h */,
+				25FC969F1988593500610EC8 /* Meeting.m */,
+				25FC96A219885BDB00610EC8 /* MeetingRequest.h */,
+				25FC96A319885BDB00610EC8 /* MeetingRequest.m */,
+				25FC96A619887F0000610EC8 /* ServiceRequestDelegate.h */,
 			);
 			path = Buzzer;
 			sourceTree = "<group>";
@@ -259,8 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				25FC967C19882DFB00610EC8 /* SecondViewController.m in Sources */,
+				25FC96A01988593500610EC8 /* Meeting.m in Sources */,
 				25FC967019882DFB00610EC8 /* AppDelegate.m in Sources */,
+				25FC969C1988371800610EC8 /* BaseRequest.m in Sources */,
 				25FC967919882DFB00610EC8 /* FirstViewController.m in Sources */,
+				25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */,
 				25FC966C19882DFB00610EC8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FC969D1988371800610EC8 /* BaseRequest.m in Sources */,
+				25FC96A519885BDB00610EC8 /* MeetingRequest.m in Sources */,
+				25FC96A11988593500610EC8 /* Meeting.m in Sources */,
 				25FC969119882DFB00610EC8 /* BuzzerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +502,7 @@
 				25FC969619882DFB00610EC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		25FC969719882DFB00610EC8 /* Build configuration list for PBXNativeTarget "BuzzerTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +511,7 @@
 				25FC969919882DFB00610EC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

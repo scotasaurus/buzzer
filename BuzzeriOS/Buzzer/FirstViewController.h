@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+// TODO: Remove
+#import "MeetingRequest.h"
+#import "ServiceRequestDelegate.h"
+
 @interface FirstViewController : UIViewController
+
+
+// TODO: Remove
+@property MeetingRequest * meetingRequest;
 
 @end

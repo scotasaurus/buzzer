@@ -18,12 +18,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //TODO: Remove
+    // Random test jargon.
+    _meetingRequest = [[MeetingRequest alloc] init];
+    [_meetingRequest setDelegate:self];
+    [_meetingRequest makeRequest];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// TODO: Remove
+// Random test jargon
+- (void)requestCompleted {
+    [_meetingRequest getMeetings];
 }
 
 @end
