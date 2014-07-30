@@ -16,23 +16,15 @@
 
 @implementation BaseRequest
 
-- (id)initWithUrl:(NSString *)serviceUrl {
-    self = [super init];
-    if (self) {
-        _url = [[NSString alloc] initWithString:serviceUrl];
-    }
-    
-    return self;
-}
 
 - (void)setDelegate:(id)delegate {
     _delegate = delegate;
 }
 
-- (void)makeRequest {
+- (void)makeRequest:(NSString *)url {
     _dataCollected = false;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_url]
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                              
                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          timeoutInterval:60.0];
@@ -82,6 +74,8 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+    _dataCollected = false;
     
     //Notify the caller that the request failed.
     [_delegate requestFailed];
