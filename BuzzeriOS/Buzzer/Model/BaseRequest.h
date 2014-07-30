@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString const * baseUrl = @"http://echo.jsontest.com/";
+static NSString const * baseUrl = @"http://bzz.azurewebsites.net/";
 
 
 @interface BaseRequest : NSObject<NSURLConnectionDelegate>
