@@ -23,7 +23,7 @@
     // Random test jargon.
     _meetingRequest = [[MeetingRequest alloc] init];
     [_meetingRequest setDelegate:self];
-    //[_meetingRequest makeRequest:@""];
+    [_meetingRequest makeRequest:@""];
     
 }
 

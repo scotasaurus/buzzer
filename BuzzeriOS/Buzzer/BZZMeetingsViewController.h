@@ -1,14 +1,13 @@
 //
-//  BZZMeetingsViewController.m
+//  BZZMeetingsViewController.h
 //  Buzzer
 //
-//  Created by rdaly on 7/30/14.
+//  Created by Scot McIntosh on 7/29/14.
 //  Copyright (c) 2014 ___SKUNKd___. All rights reserved.
 //
 
-#import "BZZMeetingsViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface BZZMeetingsViewController : UITableViewController
 
 @end
-
