@@ -29,6 +29,8 @@
 		25FC96A11988593500610EC8 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC969F1988593500610EC8 /* Meeting.m */; };
 		25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96A319885BDB00610EC8 /* MeetingRequest.m */; };
 		25FC96A519885BDB00610EC8 /* MeetingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96A319885BDB00610EC8 /* MeetingRequest.m */; };
+		25FC96AC198957D500610EC8 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96AB198957D500610EC8 /* Device.m */; };
+		25FC96AD198957D500610EC8 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96AB198957D500610EC8 /* Device.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		25FC96A219885BDB00610EC8 /* MeetingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingRequest.h; path = Model/MeetingRequest.h; sourceTree = "<group>"; };
 		25FC96A319885BDB00610EC8 /* MeetingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingRequest.m; path = Model/MeetingRequest.m; sourceTree = "<group>"; };
 		25FC96A619887F0000610EC8 /* ServiceRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceRequestDelegate.h; path = Model/ServiceRequestDelegate.h; sourceTree = "<group>"; };
+		25FC96AA198957D500610EC8 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Device.h; path = Model/Device.h; sourceTree = "<group>"; };
+		25FC96AB198957D500610EC8 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Device.m; path = Model/Device.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 				25FC96A219885BDB00610EC8 /* MeetingRequest.h */,
 				25FC96A319885BDB00610EC8 /* MeetingRequest.m */,
 				25FC96A619887F0000610EC8 /* ServiceRequestDelegate.h */,
+				25FC96AA198957D500610EC8 /* Device.h */,
+				25FC96AB198957D500610EC8 /* Device.m */,
 			);
 			path = Buzzer;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 				25FC967C19882DFB00610EC8 /* SecondViewController.m in Sources */,
 				25FC96A01988593500610EC8 /* Meeting.m in Sources */,
 				25FC967019882DFB00610EC8 /* AppDelegate.m in Sources */,
+				25FC96AC198957D500610EC8 /* Device.m in Sources */,
 				25FC969C1988371800610EC8 /* BaseRequest.m in Sources */,
 				25FC967919882DFB00610EC8 /* FirstViewController.m in Sources */,
 				25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */,
@@ -295,6 +302,7 @@
 				25FC969D1988371800610EC8 /* BaseRequest.m in Sources */,
 				25FC96A519885BDB00610EC8 /* MeetingRequest.m in Sources */,
 				25FC96A11988593500610EC8 /* Meeting.m in Sources */,
+				25FC96AD198957D500610EC8 /* Device.m in Sources */,
 				25FC969119882DFB00610EC8 /* BuzzerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

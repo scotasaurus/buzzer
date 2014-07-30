@@ -8,7 +8,7 @@
 
 #import "BaseRequest.h"
 
-static NSString const * meetingRequestUrl = @"name/name/creator/creator";
+static NSString const * meetingRequestUrl = @"api/sessions/GetAllSessions";
 
 @interface MeetingRequest : BaseRequest
 
