@@ -7,17 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Device.h"
-
 
 @interface Meeting : NSObject
 
-@property NSString *id;
 @property NSString *name;
-@property Device *creator;
-@property NSArray *clients;
+@property NSString *creator;
 
-- (id)initWithId:(NSString *)meetingId andName:(NSString *)meetingName andCreator:(Device *)meetingCreator andClients:(NSArray *)meetingClients;
+- (id)initWithName:(NSString *)nameValue andCreator:(NSString *)creatorValue;
 
 
 @end
