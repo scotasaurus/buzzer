@@ -10,16 +10,15 @@
 
 static NSString const * baseUrl = @"http://echo.jsontest.com/";
 
+
 @interface BaseRequest : NSObject<NSURLConnectionDelegate>
 
-@property NSString *url;
 @property(nonatomic) id delegate;
 @property NSMutableData *responseData;
 @property BOOL dataCollected;
 
-- (id)initWithUrl : (NSString *)serviceUrl;
 - (void)setDelegate:(id)delegate;
-- (void)makeRequest;
+- (void)makeRequest:(NSString *)url;
 - (NSDictionary *)getDataFromResponse;
 
 @end
