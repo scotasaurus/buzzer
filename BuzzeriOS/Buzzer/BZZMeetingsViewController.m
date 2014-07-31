@@ -97,6 +97,18 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
+    [self.navigationController setToolbarHidden:YES animated:YES];
+}
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
