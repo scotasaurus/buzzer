@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="MeetingBuzzerContext-Web.config Connection String" description="MeetingBuzzerContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:c4r2q8bao2.database.windows.net,1433;Database=bzzAnLmw2CaozRBO;User ID=bzzuser@c4r2q8bao2;Password=bzzmePlz!;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\dev\\buzzer\\buzzer\\Azure\\MeetingBuzzer\\MeetingBuzzer\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MeetingBuzzerContext']/@connectionString" />
+  </parameter>
+</parameters>

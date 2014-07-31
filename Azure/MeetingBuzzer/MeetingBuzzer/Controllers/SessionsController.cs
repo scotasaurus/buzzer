@@ -1,41 +1,72 @@
-﻿using MeetingBuzzer.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
+using MeetingBuzzer.Models;
 
 namespace MeetingBuzzer.Controllers
 {
     public class SessionsController : ApiController
     {
-        public static List<Session> sessions = new List<Session>();
-        public static DevicesController devicesController = new DevicesController();
+        private MeetingBuzzerContext db = new MeetingBuzzerContext();
 
         [HttpGet]
         [ActionName("GetAllSessions")]
-        public IEnumerable<Session> GetAllSessions()
+        public IEnumerable<Meeting> GetAllSessions()
         {
-            List<Session> sessions = new List<Session>();
+            List<Meeting> meetings = new List<Meeting>();
+            foreach(Session session in db.Sessions)
+            {
+                Meeting meeting = new Meeting();
+                meeting.MeetingId = session.Id;
+                meeting.MeetingName = session.Name;
+                Device parentDevice = db.Devices.Find(session.parentDeviceId);
+                meeting.ParentDevice = parentDevice;
+                meeting.Devices = new List<Device>();
+                foreach (SessionDeviceRelation sdr in db.SessionDeviceRelations.Where(x => (x.MeetingId == session.Id)))
+                {
+                    Device device = db.Devices.Find(sdr.DeviceId);
+                    meeting.Devices.Add(device);
+                }
 
-
-            return sessions;
+                meetings.Add(meeting);
+            }
+            return meetings;
         }
 
         [HttpGet]
         [ActionName("GetSession")]
         public IHttpActionResult GetSession(string id)
         {
-            var session = sessions.FirstOrDefault((p) => p.meeting.Id == id);
+            Session session = db.Sessions.Find(id);
             if (session == null)
             {
                 return NotFound();
             }
 
-            return Ok(session);
-        }
+            // TODO: REfactor
+            Meeting meeting = new Meeting();
+            meeting.MeetingId = session.Id;
+            meeting.MeetingName = session.Name;
+            Device parentDevice = db.Devices.Find(session.parentDeviceId);
+            meeting.ParentDevice = parentDevice;
+            meeting.Devices = new List<Device>();
+            foreach (SessionDeviceRelation sdr in db.SessionDeviceRelations.Where(x => (x.MeetingId == session.Id)))
+            {
+                Device device = db.Devices.Find(sdr.DeviceId);
+                meeting.Devices.Add(device);
+            }
 
+
+            return Ok(meeting);
+        }
+            
         [HttpGet]
         [ActionName("CreateSession")]
         public IHttpActionResult CreateSession(string id, string deviceId)
@@ -43,43 +74,82 @@ namespace MeetingBuzzer.Controllers
             // Create a meeting that we can manage.
             // TODO: Remove dupes, manage meetings that have expired
             Session session = new Session();
+            session.Id = Convert.ToString(Guid.NewGuid());
+            session.Name = id;
 
-            Meeting meeting = new Meeting();
-            meeting.Name = id;
-            meeting.Id = Convert.ToString(Guid.NewGuid());
-
-            session.meeting = meeting;
-
-            Device device = devicesController.GetDeviceFromId(deviceId);
+            Device device = db.Devices.Find(deviceId);
             if (device == null)
             {
                 return NotFound();
             }
 
-            session.parentDevice = device;
-            session.devices.Add(device);
-            sessions.Add(session);
+            session.parentDeviceId = deviceId;
 
-            return Ok(meeting);
+            SessionDeviceRelation sdRelation = new SessionDeviceRelation();
+            sdRelation.Id = Convert.ToString(Guid.NewGuid()); // TODO: Fix this
+            sdRelation.MeetingId = session.Id;
+            sdRelation.DeviceId = deviceId;
+            db.SessionDeviceRelations.Add(sdRelation);
+
+            db.Sessions.Add(session);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (SessionExists(session.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(session);
         }
 
         [HttpGet]
         [ActionName("JoinMeeting")]
         public IHttpActionResult JoinMeeting(string id, string deviceId)
         {
-            Session session = sessions.Find((s) => s.meeting.Id == id);
+            Session session = db.Sessions.Find(id);
             if (session == null)
             {
                 return NotFound();
             }
 
-            Device device = devicesController.GetDeviceFromId(deviceId);
+            Device device = db.Devices.Find(deviceId);
             if (device == null)
             {
                 return NotFound();
             }
 
-            session.devices.Add(device);
+
+            SessionDeviceRelation sdRelation = new SessionDeviceRelation();
+            sdRelation.Id = Convert.ToString(Guid.NewGuid()); // TODO: Fix this
+            sdRelation.MeetingId = session.Id;
+            sdRelation.DeviceId = deviceId;
+            db.SessionDeviceRelations.Add(sdRelation);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (SessionExists(session.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return Ok();
         }
@@ -88,15 +158,32 @@ namespace MeetingBuzzer.Controllers
         [ActionName("Signal")]
         public IHttpActionResult Signal(string id, string deviceId)
         {
-            Session session = sessions.Find((s) => s.meeting.Id == id);
+            Session session = db.Sessions.Find(id);
             if (session == null)
             {
                 return NotFound();
             }
 
-            foreach (Device d in session.devices)
+            foreach (SessionDeviceRelation sdr in db.SessionDeviceRelations.Where(x => ((x.MeetingId == id) && (x.DeviceId != deviceId))))
             {
-                d.Signal();
+                Device device = db.Devices.Find(sdr.DeviceId);
+                device.Signal = true;
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (SessionExists(session.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
             return Ok();
@@ -106,16 +193,31 @@ namespace MeetingBuzzer.Controllers
         [ActionName("LeaveMeeting")]
         public IHttpActionResult LeaveMeeting(string id, string deviceId)
         {
-            Session session = sessions.Find((s) => s.meeting.Id == id);
+            Session session = db.Sessions.Find(id);
             if (session == null)
             {
                 return NotFound();
             }
 
-            int deleted = session.devices.RemoveAll((d) => d.Id == deviceId);
-            if (deleted == 0)
+            foreach (var sdr in db.SessionDeviceRelations.Where(x => ((x.MeetingId == id) && (x.DeviceId == deviceId))))
             {
-                return NotFound();
+                db.SessionDeviceRelations.Remove(sdr);
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (SessionExists(session.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
             return Ok();
@@ -125,18 +227,33 @@ namespace MeetingBuzzer.Controllers
         [ActionName("RemoveMeeting")]
         public IHttpActionResult RemoveMeeting(string id, string deviceId)
         {
-            Session session = sessions.Find((s) => s.meeting.Id == id);
+            Session session = db.Sessions.Find(id);
             if (session == null)
             {
                 return NotFound();
             }
 
-            if (session.parentDevice.Id != deviceId)
+            if (session.parentDeviceId == deviceId)
             {
-                return NotFound();
+                db.Sessions.Remove(session);
+                db.SaveChanges();
             }
 
-            return Ok(sessions.Remove(session));
+            return Ok(session);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private bool SessionExists(string id)
+        {
+            return db.Sessions.Count(e => e.Id == id) > 0;
         }
     }
 }

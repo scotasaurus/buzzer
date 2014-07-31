@@ -8,9 +8,9 @@ namespace MeetingBuzzer.Models
 {
     public class Session
     {
-        public Meeting meeting { get; set; }
-        public Device parentDevice { get; set; }
-        public List<Device> devices { get; set; }
- 
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string parentDeviceId { get; set; }
+
     }
 }

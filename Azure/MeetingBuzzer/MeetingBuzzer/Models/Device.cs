@@ -9,27 +9,22 @@ namespace MeetingBuzzer.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string deviceInfo { get; set; }
-        public string deviceOwner { get; set; }
-        public string stream { get; set; }
-        public bool signal { get; set; }
+        public string DeviceInfo { get; set; }
+        public string DeviceOwner { get; set; }
+        public string Stream { get; set; }
+        public bool Signal { get; set; }
 
         public Device()
         {
-            signal = false;
+            Signal = false;
         }
 
         public bool isSignaled()
         {
-            bool isSignaled = signal;
-            signal = false;
+            bool isSignaled = Signal;
+            Signal = false;
 
             return isSignaled;
-        }
-
-        public void Signal()
-        {
-            signal = true;
         }
 
     }

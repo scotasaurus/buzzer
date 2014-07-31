@@ -13,7 +13,15 @@ namespace MeetingBuzzer
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
+            config.Routes.MapHttpRoute(
+                name: "TwoParameterApi",
+                routeTemplate: "api/{controller}/{action}/{id}/{deviceId}",
+                defaults: new
+                {
+                    id = RouteParameter.Optional,
+                    deviceId = RouteParameter.Optional
+                }
+            );
             config.Routes.MapHttpRoute(
                 name: "ThreeParameterApi",
                 routeTemplate: "api/{controller}/{action}/{name}/{deviceOwner}/{deviceInfo}",
@@ -24,15 +32,7 @@ namespace MeetingBuzzer
                     deviceInfo = RouteParameter.Optional
                 }
             );
-            config.Routes.MapHttpRoute(
-                name: "TwoParameterApi",
-                routeTemplate: "api/{controller}/{action}/{id}/{deviceId}",
-                defaults: new
-                {
-                    id = RouteParameter.Optional,
-                    deviceId = RouteParameter.Optional
-                }
-            );
+
             config.Routes.MapHttpRoute(
                 name: "NamedApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
