@@ -39,6 +39,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     mockMeetings = [NSArray arrayWithObjects:@"Triads meeting", @"Apex All Hands", @"Dev Mgrs meeting", nil];
 
+    [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -100,13 +101,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
     [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
     [self.navigationController setToolbarHidden:YES animated:YES];
 }
 

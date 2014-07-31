@@ -9,15 +9,17 @@
 #import "BZZTextField.h"
 
 
-
 @implementation BZZTextField
+
+#pragma mark -
+#pragma mark Initialization and Drawing
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         
+        // Initialization code
         self.layer.borderWidth= 1.0f;
         self.borderStyle=UITextBorderStyleNone;
         self.backgroundColor=[UIColor lightGrayColor];
@@ -26,6 +28,25 @@
 
         [self.layer setDelegate:self];
 
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+        
+        // Initialization code
+        self.layer.borderWidth= 1.0f;
+        self.borderStyle=UITextBorderStyleNone;
+        self.backgroundColor=[UIColor lightGrayColor];
+        self.layer.masksToBounds=YES;
+        [self setBorderForColor:[UIColor lightGrayColor] width:1.0f];
+        
+        [self.layer setDelegate:self];
+        
     }
     return self;
 }
@@ -52,6 +73,7 @@
     [[self placeholder] drawInRect:rect withAttributes:attributes];
 }
 
+
 - (void)setBorderForColor:(UIColor *)color
                     width:(float)width
 {
@@ -68,8 +90,6 @@
 }
 
 
-
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -78,6 +98,10 @@
     // Drawing code
 }
 */
+
+
+#pragma mark - 
+#pragma mark NSResponder methods
 
 - (BOOL)becomeFirstResponder {
     BOOL outcome = [super becomeFirstResponder];
