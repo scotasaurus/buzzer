@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1rA-i4-mK3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1rA-i4-mK3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="453" y="-53"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Meetings View Controller-->
         <scene sceneID="80E-xY-8iU">
             <objects>
-                <tableViewController id="sTf-9C-gJG" customClass="BZZTableViewController" sceneMemberID="viewController">
+                <tableViewController id="sTf-9C-gJG" customClass="BZZMeetingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FNg-mj-2RG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,8 +92,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="sTf-9C-gJG" id="NaV-EH-naX"/>
-                            <outlet property="delegate" destination="sTf-9C-gJG" id="aqb-oQ-7oI"/>
+                            <outlet property="dataSource" destination="sTf-9C-gJG" id="KKE-Ls-nZz"/>
+                            <outlet property="delegate" destination="sTf-9C-gJG" id="2FA-eX-XZs"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Ht3-OO-UOu"/>
@@ -103,7 +103,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMy-kj-Foc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="962" y="-52"/>
+            <point key="canvasLocation" x="938" y="-53"/>
         </scene>
         <!--Buzz View Controller-->
         <scene sceneID="Pyg-TZ-SNy">

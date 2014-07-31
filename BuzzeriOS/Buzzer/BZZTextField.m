@@ -24,7 +24,6 @@
         [self setBorderForColor:[UIColor whiteColor] width:1.0f radius:1.0f];
 
         [self.layer setDelegate:self];
-        [self setNeedsDisplay];
 
     }
     return self;
@@ -42,7 +41,7 @@
 - (id <CAAction>)actionForLayer:(CALayer *)layer forKey:(NSString *)event {
     
         CABasicAnimation *ani = [CABasicAnimation animationWithKeyPath:event]; // Default Animation for 'event'
-        ani.duration = 0.5; // Your custom animation duration
+        ani.duration = 0.3; // Your custom animation duration
         return ani;
 }
 

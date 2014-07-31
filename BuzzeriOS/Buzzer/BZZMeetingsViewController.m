@@ -10,7 +10,7 @@
 
 @interface BZZMeetingsViewController ()
 
-@property (strong, readonly, nonatomic) NSArray *mockMeetings;
+@property (strong, atomic) NSArray *mockMeetings;
 
 @end
 
@@ -31,6 +31,8 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    self.mockMeetings = [NSArray arrayWithObjects:@"Triads meeting", @"Apex All Hands", @"Dev Mgrs meeting", nil];
+
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -46,26 +48,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 10;
+    return self.mockMeetings.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"cellIdentifier";
+    static NSString *CellIdentifier = @"MeetingCellIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
-    // Configure the cell...
+    NSString *s = (NSString *) [self.mockMeetings objectAtIndex:indexPath.row];
+    cell.textLabel.text = s;
     
     return cell;
 }
