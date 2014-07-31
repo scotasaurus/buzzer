@@ -88,25 +88,14 @@
 
 }
 
-/*
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIViewController *buzzViewController = [self segu];
-    
-    // It is here we'd pass information from the currently selected UITableViewCell to the ProteinView.
-    // An example of this is the following.
-    
-    // I would do it like this, but others would differ slightly.
-    NSString *titleString = [[[NSString alloc] initWithFormat:@"iPad %d",indexPath.row] autorelease];
-    
-    // title is an object of detailViewController (ProteinView). In my own instances, I have always made a NSString which in viewDiDLoad is made the self.navigationBar.title string. Look below for what my ProteinView.m and .h would look like.
-    detailViewController.stringTitle = titleString;
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
+ 
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
-*/
+
 
 /*
  // Override to support conditional editing of the table view.
