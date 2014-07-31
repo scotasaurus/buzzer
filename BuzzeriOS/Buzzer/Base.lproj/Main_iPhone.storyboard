@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--Welcome View Controller - Sign in-->
         <scene sceneID="YMf-vh-vMG">
             <objects>
                 <viewController id="dwJ-yQ-qhX" customClass="BZZWelcomeViewController" sceneMemberID="viewController">
@@ -64,13 +64,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.39480474792685083" green="0.95787137340671946" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lsC-zD-jbl"/>
+                    <navigationItem key="navigationItem" title="Sign in" id="lsC-zD-jbl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nso-Hj-C8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979" y="-53"/>
         </scene>
-        <!--Meetings View Controller-->
+        <!--Meetings View Controller - Meetings-->
         <scene sceneID="80E-xY-8iU">
             <objects>
                 <tableViewController id="sTf-9C-gJG" customClass="BZZMeetingsViewController" sceneMemberID="viewController">
@@ -96,7 +96,9 @@
                             <outlet property="delegate" destination="sTf-9C-gJG" id="2FA-eX-XZs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ht3-OO-UOu"/>
+                    <navigationItem key="navigationItem" title="Meetings" id="Ht3-OO-UOu">
+                        <barButtonItem key="backBarButtonItem" title="  " id="UfA-8c-hRl"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="FNg-mj-2RG" id="qkc-Ml-1bh"/>
                     </connections>
@@ -105,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="1464" y="-53"/>
         </scene>
-        <!--View Controller-->
+        <!--Buzz View Controller-->
         <scene sceneID="Mqw-CC-beR">
             <objects>
-                <viewController id="cop-rB-Fp9" sceneMemberID="viewController">
+                <viewController id="cop-rB-Fp9" customClass="BZZBuzzViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qWe-b6-zDm"/>
                         <viewControllerLayoutGuide type="bottom" id="kGJ-8C-DgI"/>
@@ -117,18 +119,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrJ-xB-QDr" customClass="BZZBuzzButton">
-                                <rect key="frame" x="46" y="190" width="229" height="147"/>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrJ-xB-QDr">
+                                <rect key="frame" x="0.0" y="-14" width="320" height="582"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.39989187189999997" blue="0.38431341489999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="BUZZ!!!">
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="BUZZT A MOVE!!!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="RrB-LK-1sT"/>
+                    <connections>
+                        <outlet property="buzzButton" destination="DrJ-xB-QDr" id="f60-g0-fVm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8D-2b-ONs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
