@@ -60,7 +60,7 @@ static NSString * twoParameterApi = @"%@%@/%@/%@";
     NSDictionary * jsonData = [self getDataFromResponse];
     if (jsonData != nil)
     {
-        NSArray * rawSessionData = jsonData[@"Sessions"];
+        NSArray * rawSessionData = (NSArray *)jsonData;
         for (NSDictionary *sessionData in rawSessionData)
         {
             if (meetings == nil) {
@@ -87,22 +87,30 @@ static NSString * twoParameterApi = @"%@%@/%@/%@";
 }
 
 - (Meeting *)_parseSessionDataFromDictionary:(NSDictionary *)sessionData {
-    NSDictionary *parentDeviceData = sessionData[@"ParentDevice"];
-    Device * creatorDevice = [[Device alloc] initDevicewithId:parentDeviceData[@"Id"]
-                                                      andName:parentDeviceData[@"Name"]
-                                                      andInfo:parentDeviceData[@"DeviceInfo"]
-                                                     andOwner:parentDeviceData[@"DeviceOwner"]
-                                                    andStream:parentDeviceData[@"Stream"]];
     
-    NSMutableArray *deviceList = [[NSMutableArray alloc] init];
+    Device *creatorDevice = nil;
+    
+    // Device data will only be given when calling GetMeeting()
+    NSDictionary *parentDeviceData = sessionData[@"ParentDevice"];
+    if (![parentDeviceData isKindOfClass:[NSNull class]]) {
+        creatorDevice = [[Device alloc] initDevicewithId:parentDeviceData[@"Id"]
+                                                          andName:parentDeviceData[@"Name"]
+                                                          andInfo:parentDeviceData[@"DeviceInfo"]
+                                                         andOwner:parentDeviceData[@"DeviceOwner"]
+                                                        andStream:parentDeviceData[@"Stream"]];
+    }
+    NSMutableArray *deviceList = nil;
     NSArray *rawClientList = sessionData[@"Devices"];
-    for (NSDictionary *deviceData in rawClientList) {
-        Device * device = [[Device alloc] initDevicewithId:deviceData[@"Id"]
-                                                   andName:deviceData[@"Name"]
-                                                   andInfo:deviceData[@"DeviceInfo"]
-                                                  andOwner:deviceData[@"DeviceOwner"]
-                                                 andStream:deviceData[@"Stream"]];
-        [deviceList addObject:device];
+    if (![rawClientList isKindOfClass:[NSNull class]]) {
+        rawClientList = [[NSMutableArray alloc] init];
+        for (NSDictionary *deviceData in rawClientList) {
+            Device * device = [[Device alloc] initDevicewithId:deviceData[@"Id"]
+                                                       andName:deviceData[@"Name"]
+                                                       andInfo:deviceData[@"DeviceInfo"]
+                                                      andOwner:deviceData[@"DeviceOwner"]
+                                                     andStream:deviceData[@"Stream"]];
+            [deviceList addObject:device];
+        }
     }
     
     Meeting * meeting = [[Meeting alloc] initWithId:sessionData[@"MeetingId"]

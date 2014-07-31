@@ -29,8 +29,6 @@
                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          timeoutInterval:60.0];
     [request setHTTPMethod:@"GET"];
-    [request setValue:@"Accept" forHTTPHeaderField:@"application/json"];
-    [request setValue:@"Content-Type" forHTTPHeaderField:@"application/json"];
 
     [NSURLConnection connectionWithRequest:request delegate:self];
 }

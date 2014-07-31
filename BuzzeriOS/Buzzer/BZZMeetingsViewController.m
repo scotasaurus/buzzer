@@ -16,7 +16,8 @@
 @implementation BZZMeetingsViewController
 {
     NSArray *mockMeetings;
-
+    MeetingRequest *meetingRequest;
+    NSArray *meetings;
     
 }
 
@@ -38,6 +39,11 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     mockMeetings = [NSArray arrayWithObjects:@"Triads meeting", @"Apex All Hands", @"Dev Mgrs meeting", nil];
 
+    meetings = nil;
+    
+    meetingRequest = [[MeetingRequest alloc] init];
+    [meetingRequest setDelegate:self];
+    [meetingRequest getMeetingsAsync];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -62,8 +68,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (meetings == nil) {
+        return 0;
+    }
+    
     // Return the number of rows in the section.
-    return [mockMeetings count];
+    return [meetings count];
 }
 
 
@@ -76,7 +86,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [mockMeetings objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[meetings objectAtIndex:indexPath.row] name];
     
     return cell;
 }
@@ -95,6 +105,19 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
+
+
+#pragma mark - ServiceRequestDelegate Methods
+
+- (void)requestCompleted {
+    meetings = [meetingRequest processGetAllMeetingsResponse];
+    [[self tableView] reloadData];
+}
+
+- (void)requestFailed {
+    // TODO: Do something here.
+}
+
 
 
 /*
@@ -145,5 +168,8 @@
  // Pass the selected object to the new view controller.
  }
 */
+
+
+
 
 @end
