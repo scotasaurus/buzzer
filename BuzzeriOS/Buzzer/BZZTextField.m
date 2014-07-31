@@ -19,9 +19,9 @@
         // Initialization code
         self.layer.borderWidth= 1.0f;
         self.borderStyle=UITextBorderStyleNone;
-        self.backgroundColor=[UIColor whiteColor];
+        self.backgroundColor=[UIColor lightGrayColor];
         self.layer.masksToBounds=YES;
-        [self setBorderForColor:[UIColor whiteColor] width:1.0f radius:1.0f];
+        [self setBorderForColor:[UIColor lightGrayColor] width:1.0f radius:1.0f];
 
         [self.layer setDelegate:self];
 
@@ -57,7 +57,7 @@
 - (BOOL)becomeFirstResponder {
     BOOL outcome = [super becomeFirstResponder];
     if (outcome) {
-        [self setBorderForColor:[UIColor lightGrayColor] width:1.0f radius:1.0f];
+        [self setBorderForColor:[UIColor blueColor] width:1.0f radius:1.0f];
 
     }
     return outcome;
@@ -66,7 +66,7 @@
 - (BOOL)resignFirstResponder {
     BOOL outcome = [super resignFirstResponder];
     if (outcome) {
-        [self setBorderForColor:[UIColor whiteColor] width:1.0f radius:1.0f];
+        [self setBorderForColor:[UIColor lightGrayColor] width:1.0f radius:1.0f];
 }
     return outcome;
 }
