@@ -100,6 +100,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="dmT-nG-E5p"/>
                         <barButtonItem systemItem="add" id="8BL-Ch-Kc9">
                             <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                            <connections>
+                                <action selector="addMeeting:" destination="sTf-9C-gJG" id="jjh-yN-DUP"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="Ht3-OO-UOu">

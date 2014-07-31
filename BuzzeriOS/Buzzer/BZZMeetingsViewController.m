@@ -10,6 +10,7 @@
 
 @interface BZZMeetingsViewController ()
 
+- (IBAction)addMeeting:(id)sender;
 
 @end
 
@@ -158,4 +159,6 @@
  }
 */
 
+- (IBAction)addMeeting:(id)sender {
+}
 @end
