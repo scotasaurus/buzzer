@@ -40,8 +40,7 @@ static NSString * threeParameterApi = @"%@%@/%@/%@/%@";
     NSDictionary * jsonData = [self getDataFromResponse];
     if (jsonData != nil)
     {
-        NSDictionary * deviceData = jsonData[@"device"];
-        device = [self _parseDeviceDataFromDictionary:deviceData];
+        device = [self _parseDeviceDataFromDictionary:jsonData];
     }
     
     return device;
