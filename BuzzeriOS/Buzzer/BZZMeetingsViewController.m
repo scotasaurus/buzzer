@@ -10,6 +10,7 @@
 
 @interface BZZMeetingsViewController ()
 
+- (IBAction)addMeeting:(id)sender;
 
 @end
 
@@ -39,11 +40,15 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     mockMeetings = [NSArray arrayWithObjects:@"Triads meeting", @"Apex All Hands", @"Dev Mgrs meeting", nil];
 
+<<<<<<< HEAD
     meetings = nil;
     
     meetingRequest = [[MeetingRequest alloc] init];
     [meetingRequest setDelegate:self];
     [meetingRequest getMeetingsAsync];
+=======
+    [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
+>>>>>>> FETCH_HEAD
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -107,6 +112,7 @@
 }
 
 
+<<<<<<< HEAD
 #pragma mark - ServiceRequestDelegate Methods
 
 - (void)requestCompleted {
@@ -120,6 +126,18 @@
 
 
 
+=======
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
+}
+
+>>>>>>> FETCH_HEAD
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -169,7 +187,12 @@
  }
 */
 
+<<<<<<< HEAD
 
 
 
+=======
+- (IBAction)addMeeting:(id)sender {
+}
+>>>>>>> FETCH_HEAD
 @end
