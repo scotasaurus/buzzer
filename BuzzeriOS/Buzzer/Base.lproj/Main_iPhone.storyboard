@@ -96,9 +96,7 @@
                             <outlet property="delegate" destination="sTf-9C-gJG" id="2FA-eX-XZs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Meetings" id="Ht3-OO-UOu">
-                        <barButtonItem key="backBarButtonItem" title="  " id="UfA-8c-hRl"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Meetings" id="Ht3-OO-UOu"/>
                     <connections>
                         <outlet property="tableView" destination="FNg-mj-2RG" id="qkc-Ml-1bh"/>
                     </connections>
@@ -131,7 +129,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RrB-LK-1sT"/>
+                    <navigationItem key="navigationItem" id="RrB-LK-1sT">
+                        <barButtonItem key="backBarButtonItem" title="Meetings" id="hSr-1F-dvS"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="buzzButton" destination="DrJ-xB-QDr" id="f60-g0-fVm"/>
                     </connections>
@@ -146,9 +146,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7d0-0P-PXl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aIm-R9-hhG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N6A-HR-wG9">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="N6A-HR-wG9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
