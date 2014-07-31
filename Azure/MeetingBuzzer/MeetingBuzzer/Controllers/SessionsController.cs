@@ -26,15 +26,6 @@ namespace MeetingBuzzer.Controllers
                 Meeting meeting = new Meeting();
                 meeting.MeetingId = session.Id;
                 meeting.MeetingName = session.Name;
-                Device parentDevice = db.Devices.Find(session.parentDeviceId);
-                meeting.ParentDevice = parentDevice;
-                meeting.Devices = new List<Device>();
-                foreach (SessionDeviceRelation sdr in db.SessionDeviceRelations.Where(x => (x.MeetingId == session.Id)))
-                {
-                    Device device = db.Devices.Find(sdr.DeviceId);
-                    meeting.Devices.Add(device);
-                }
-
                 meetings.Add(meeting);
             }
             return meetings;
