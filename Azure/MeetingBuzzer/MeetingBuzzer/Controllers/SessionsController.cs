@@ -41,7 +41,7 @@ namespace MeetingBuzzer.Controllers
         }
 
         [HttpGet]
-        [ActionName("GetSession")]
+        [ActionName("GetMeeting")]
         public IHttpActionResult GetSession(string id)
         {
             Session session = db.Sessions.Find(id);
@@ -155,7 +155,7 @@ namespace MeetingBuzzer.Controllers
         }
 
         [HttpGet]
-        [ActionName("Signal")]
+        [ActionName("SignalMeeting")]
         public IHttpActionResult Signal(string id, string deviceId)
         {
             Session session = db.Sessions.Find(id);
