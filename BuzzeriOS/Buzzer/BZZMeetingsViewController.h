@@ -10,5 +10,10 @@
 
 @interface BZZMeetingsViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UIViewController *buzzController;
+
+
 @end
 

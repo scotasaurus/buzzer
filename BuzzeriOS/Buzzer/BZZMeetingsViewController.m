@@ -10,17 +10,22 @@
 
 @interface BZZMeetingsViewController ()
 
-@property (strong, retain, atomic) NSArray *mockMeetings;
 
 @end
 
 @implementation BZZMeetingsViewController
+{
+    NSArray *mockMeetings;
+
+    
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -31,7 +36,7 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    self.mockMeetings = [NSArray arrayWithObjects:@"Triads meeting", @"Apex All Hands", @"Dev Mgrs meeting", nil];
+    mockMeetings = [NSArray arrayWithObjects:@"Triads meeting", @"Apex All Hands", @"Dev Mgrs meeting", nil];
 
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -46,29 +51,32 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
     return 1;
 }
 
+*/
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.mockMeetings.count;
+    return [mockMeetings count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MeetingCellIdentifier";
+    static NSString *CellIdentifier = @"MeetingCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [self.mockMeetings objectAtIndex:indexPath.row];
+    cell.textLabel.text = [mockMeetings objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -133,13 +141,13 @@
 
 
  #pragma mark - Navigation
- 
+ /*
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
  }
-
+*/
 
 @end
