@@ -17,13 +17,17 @@
         // Initialization code
         CABasicAnimation *theAnimation;
         
-        theAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+        theAnimation=[CABasicAnimation animationWithKeyPath:@"alpha"];
         theAnimation.duration=1.0;
         theAnimation.repeatCount=HUGE_VALF;
         theAnimation.autoreverses=YES;
         theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
         theAnimation.toValue=[NSNumber numberWithFloat:0.0];
-        [self.layer addAnimation:theAnimation forKey:@"animateOpacity"]; //myButton.layer instead of
+        
+        //theAnimation.fromValue = [UIColor colorWithRed:1.0 green:1.0 blue:0.0 alpha:1.0];
+        //theAnimation.toValue = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+        
+        [self.layer addAnimation:theAnimation forKey:@"animateAlpha"]; //myButton.layer instead of
     }
     return self;
 }

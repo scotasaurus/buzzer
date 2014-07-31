@@ -37,6 +37,8 @@
     theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
     theAnimation.toValue=[NSNumber numberWithFloat:0.7];
     [_buzzButton.layer addAnimation:theAnimation forKey:@"animateOpacity"];
+
+ 
 }
 
 - (void)didReceiveMemoryWarning
