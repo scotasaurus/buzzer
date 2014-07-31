@@ -49,11 +49,11 @@ static NSString * threeParameterApi = @"%@%@/%@/%@/%@";
 
 // TODO: Make this static and allow meetings controller to use this.
 - (Device *)_parseDeviceDataFromDictionary:(NSDictionary *)deviceData {
-    Device * device = [[Device alloc] initDevicewithId:deviceData[@"id"]
-                                               andName:deviceData[@"name"]
-                                               andInfo:deviceData[@"deviceInfo"]
-                                              andOwner:deviceData[@"deviceOwner"]
-                                             andStream:deviceData[@"stream"]];
+    Device * device = [[Device alloc] initDevicewithId:deviceData[@"Id"]
+                                               andName:deviceData[@"Name"]
+                                               andInfo:deviceData[@"DeviceInfo"]
+                                              andOwner:deviceData[@"DeviceOwner"]
+                                             andStream:deviceData[@"Stream"]];
     
     return device;
 }
