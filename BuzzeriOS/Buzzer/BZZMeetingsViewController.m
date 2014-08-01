@@ -7,6 +7,7 @@
 //
 
 #import "BZZMeetingsViewController.h"
+#import "DeviceUtilities.h"
 
 @interface BZZMeetingsViewController ()
 
@@ -178,5 +179,16 @@
 */
 
 - (IBAction)addMeeting:(id)sender {
+    
+    NSString * uuid = [DeviceUtilities applicationUUID];
+    if ( uuid )
+    {
+        [meetingRequest createMeetingAsync:@"Rob and Satya" withDevice:uuid];
+    }
+    else
+    {
+        // TODO: Throw and error
+    }
+    
 }
 @end
