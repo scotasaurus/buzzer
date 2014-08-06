@@ -191,8 +191,8 @@
 			children = (
 				25FC966E19882DFB00610EC8 /* AppDelegate.h */,
 				25FC966F19882DFB00610EC8 /* AppDelegate.m */,
-				25FC96B219897DA500610EC8 /* DeviceRequest.m */,
 				25FC96B319897DA500610EC8 /* DeviceRequest.h */,
+				25FC96B219897DA500610EC8 /* DeviceRequest.m */,
 				25FC969A1988371800610EC8 /* BaseRequest.h */,
 				25FC969B1988371800610EC8 /* BaseRequest.m */,
 				25FC969E1988593500610EC8 /* Meeting.h */,

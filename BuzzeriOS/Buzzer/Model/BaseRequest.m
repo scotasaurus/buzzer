@@ -24,6 +24,9 @@
 - (void)makeRequest:(NSString *)url {
     _dataCollected = false;
     
+    // Normalize the string for a web request
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                              
                                              cachePolicy:NSURLRequestUseProtocolCachePolicy

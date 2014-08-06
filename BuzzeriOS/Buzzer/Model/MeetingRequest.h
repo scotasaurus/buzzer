@@ -11,7 +11,7 @@
 
 static NSString const * getAllMeetingsRequestUrl    = @"api/sessions/GetAllSessions";
 static NSString const * getMeetingRequestUrl        = @"api/sessions/GetMeeting";
-static NSString const * createMeetingRequestUrl     = @"api/sessions/CreateMeeting";
+static NSString const * createMeetingRequestUrl     = @"api/sessions/CreateSession";
 static NSString const * joinMeetingRequestUrl       = @"api/sessions/JoinMeeting";
 static NSString const * signalMeetingRequestUrl     = @"api/sessions/SignalMeeting";
 static NSString const * leaveMeetingRequestUrl      = @"api/sessions/LeaveMeeting";

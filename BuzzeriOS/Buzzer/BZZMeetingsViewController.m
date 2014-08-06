@@ -8,25 +8,42 @@
 
 #import "BZZMeetingsViewController.h"
 #import "DeviceUtilities.h"
+#import "DeviceRequest.h"
 
 @interface BZZMeetingsViewController ()
+
+#pragma mark - Properties
+
+@property (nonatomic, retain) NSString *appUUID;
+@property (nonatomic, retain) MeetingRequest *meetingRequest;
+@property (nonatomic, retain) DeviceRequest *deviceRequest;
+@property (nonatomic, retain) NSArray * meetings;
 
 - (IBAction)addMeeting:(id)sender;
 
 @end
 
 @implementation BZZMeetingsViewController
-{
-    MeetingRequest *meetingRequest;
-    NSArray *meetings;
-    
-}
 
-- (id)initWithStyle:(UITableViewStyle)style
+#pragma mark - Initialization and View loading
+
+- (instancetype)initWithCoder:(NSCoder *)coder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:coder];
     if (self) {
-        // Custom initialization
+        _meetings = nil;
+        _meetingRequest = [[MeetingRequest alloc] init];
+        [_meetingRequest setDelegate:self];
+        [_meetingRequest getMeetingsAsync];
+        
+        _deviceRequest = [[DeviceRequest alloc] init];
+        [_deviceRequest setDelegate:self];
+       
+        
+        [_deviceRequest registerDeviceAsync:@"Rob's iPhone 5s" withDeviceOwner:@"Rob Daly" andDeviceInfo:[DeviceUtilities applicationUUID]];
+        
+        _appUUID = [DeviceUtilities applicationUUID];
+        
         
     }
     return self;
@@ -39,15 +56,18 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    meetings = nil;
-    meetingRequest = [[MeetingRequest alloc] init];
-    [meetingRequest setDelegate:self];
-    [meetingRequest getMeetingsAsync];
-    
     [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self.tableView
+                action:@selector(reloadData)
+                forControlEvents:UIControlEventValueChanged];
+                self.refreshControl = refresh;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,12 +89,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (meetings == nil) {
+    if (_meetings == nil) {
         return 0;
     }
     
     // Return the number of rows in the section.
-    return [meetings count];
+    return [_meetings count];
 }
 
 
@@ -87,7 +107,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[meetings objectAtIndex:indexPath.row] name];
+    cell.textLabel.text = [[_meetings objectAtIndex:indexPath.row] name];
     
     return cell;
 }
@@ -121,7 +141,7 @@
 #pragma mark - ServiceRequestDelegate Methods
 
 - (void)requestCompleted {
-    meetings = [meetingRequest processGetAllMeetingsResponse];
+    _meetings = [_meetingRequest processGetAllMeetingsResponse];
     [[self tableView] reloadData];
 }
 
@@ -178,17 +198,61 @@
  }
 */
 
+
+#pragma mark - IBActions
+
 - (IBAction)addMeeting:(id)sender {
     
-    NSString * uuid = [DeviceUtilities applicationUUID];
-    if ( uuid )
+//    CGSize size = CGSizeMake(50.0f,50.0f);
+//    [self presentModalViewControllerWithIdentifier:@"newMeeting" andSize:size andModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    
+    [self createMeeting:@"test"];
+    
+//    if ([self createMeeting:@"Test"] )
+//    {
+//        
+//    }
+    
+    //Dismiss the presentation view controlller at this point
+}
+
+#pragma - mark Utilities
+
+- (BOOL)createMeeting:(NSString *)meetingID
+{
+    if ( meetingID )
     {
-        [meetingRequest createMeetingAsync:@"Rob and Satya" withDevice:uuid];
+        [_meetingRequest createMeetingAsync:@"ScotsCompensationMoment" withDevice:@"7812180c-dbe5-4cc5-9021-bcfe71a00b61"];
     }
-    else
-    {
-        // TODO: Throw and error
-    }
+    return NO; 
+}
+
+- (void)createMeetingWithID:(NSString *)meetingID forStartDate:(NSDate *)startDate andEndDate:(NSDate *)endDate
+{
     
 }
+
+
+- (UIViewController *)presentModalViewControllerWithIdentifier:(NSString *)identifier
+                                                        andSize:(CGSize)size
+                                        andModalTransitionStyle:(UIModalTransitionStyle)modalTransitionStyle {
+    UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    
+    
+    viewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    viewController.modalTransitionStyle = modalTransitionStyle;
+    [self presentViewController:viewController animated:YES completion:nil];
+    viewController.view.superview.autoresizingMask =
+    UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleBottomMargin |
+    UIViewAutoresizingFlexibleLeftMargin |
+    UIViewAutoresizingFlexibleRightMargin;
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    viewController.view.superview.frame = CGRectMake(0, 0, size.width, size.height);
+    CGPoint center = CGPointMake(CGRectGetMidX(screenBounds), CGRectGetMidY(screenBounds));
+    viewController.view.superview.center = UIDeviceOrientationIsPortrait(self.interfaceOrientation) ? center : CGPointMake(center.y, center.x);
+    
+    return viewController;
+}
+
 @end
