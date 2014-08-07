@@ -16,6 +16,5 @@
 
 
 // TODO: Remove
-@property MeetingRequest * meetingRequest;
 
 @end

@@ -10,6 +10,9 @@
 
 @interface BZZWelcomeViewController ()
 
+@property (nonatomic, retain) MeetingRequest * meetingRequest;
+
+
 @end
 
 @implementation BZZWelcomeViewController

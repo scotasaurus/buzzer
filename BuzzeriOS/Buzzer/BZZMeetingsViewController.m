@@ -18,6 +18,7 @@
 @property (nonatomic, retain) MeetingRequest *meetingRequest;
 @property (nonatomic, retain) DeviceRequest *deviceRequest;
 @property (nonatomic, retain) NSArray * meetings;
+@property (nonatomic, retain) UIView * progressView;
 
 - (IBAction)addMeeting:(id)sender;
 
@@ -55,20 +56,22 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+
     [self.navigationController.toolbar setBarStyle:UIBarStyleBlackOpaque];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    [refresh addTarget:self.tableView
-                action:@selector(reloadData)
-                forControlEvents:UIControlEventValueChanged];
-                self.refreshControl = refresh;
+    [self createProgressIndication];
     
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -109,6 +112,9 @@
     
     cell.textLabel.text = [[_meetings objectAtIndex:indexPath.row] name];
     
+    if(indexPath.row >= ([_meetings count] -1) ) {
+        [self hideProgressIndication];
+    }
     return cell;
 }
 
@@ -116,9 +122,7 @@
     
     cell.backgroundColor = [UIColor blackColor];
     cell.textLabel.textColor = [UIColor whiteColor];
-
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -127,16 +131,6 @@
 
 }
 
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.navigationController setToolbarHidden:NO animated:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.navigationController setToolbarHidden:YES animated:YES];
-}
 
 #pragma mark - ServiceRequestDelegate Methods
 
@@ -188,7 +182,7 @@
  */
 
 
- #pragma mark - Navigation
+ #pragma mark - Navigation (This is where we implement meeting bindings)
  /*
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -222,7 +216,7 @@
 {
     if ( meetingID )
     {
-        [_meetingRequest createMeetingAsync:@"ScotsCompensationMoment" withDevice:@"7812180c-dbe5-4cc5-9021-bcfe71a00b61"];
+        [_meetingRequest createMeetingAsync:@"Another Random meeting" withDevice:@"7812180c-dbe5-4cc5-9021-bcfe71a00b61"];
     }
     return NO; 
 }
@@ -253,6 +247,77 @@
     viewController.view.superview.center = UIDeviceOrientationIsPortrait(self.interfaceOrientation) ? center : CGPointMake(center.y, center.x);
     
     return viewController;
+}
+
+
+#pragma mark - Progress Indication
+
+- (void)createProgressIndication
+{
+    // Activity indicator
+    _progressView = [self progressView];
+    [self.view addSubview:_progressView];
+    
+    // Refresh control
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    
+    UIFont *font = [UIFont systemFontOfSize:16.0f];
+    UIColor * white = [UIColor whiteColor];
+    NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                  /*NSParagraphStyleAttributeName: paragraphStyle,*/
+                                  NSForegroundColorAttributeName: white};
+    
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh" attributes:attributes];
+    refresh.tintColor = [UIColor whiteColor];
+    [refresh addTarget:self.tableView
+                action:@selector(reloadData)
+      forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    
+}
+
+- (void)hideProgressIndication
+{
+    if ( ![_progressView isHidden] )
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            _progressView.layer.opacity = 0.0f;
+        }];
+    }
+    
+    if ( [self.refreshControl isRefreshing] )
+    {
+        [self.refreshControl endRefreshing];
+    }
+}
+
+
+- (UIView *)progressView
+{
+    // NOTE: progressView needs to be removed from cell in cellForRowAtIndexPath:
+    CGRect progressViewFrame = CGRectZero;
+    progressViewFrame.size.width = CGRectGetMaxX(self.view.bounds);
+    progressViewFrame.size.height = CGRectGetMaxY(self.view.bounds) - 2;
+    
+    UIView *progressView = [[UIView alloc] initWithFrame:progressViewFrame];
+    progressView.backgroundColor = [UIColor blackColor];
+    
+    UILabel *loadingLabel = [[UILabel alloc] initWithFrame:progressView.bounds];
+    loadingLabel.backgroundColor = [UIColor clearColor];
+    loadingLabel.font = [UIFont systemFontOfSize:18];
+    loadingLabel.textColor = [UIColor whiteColor];
+    loadingLabel.textAlignment = NSTextAlignmentCenter;
+    loadingLabel.text = @"Loading available meetings...";
+    
+    // activityIndicatorView has size in which width and height is equal to 20.
+    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [activityIndicatorView setCenter:CGPointMake(CGRectGetMidX(self.view.bounds), (CGRectGetMidY(self.view.bounds)) - 40.0f)];
+    [activityIndicatorView startAnimating];
+    
+    [progressView addSubview:activityIndicatorView];
+    [progressView addSubview:loadingLabel];
+    
+    return progressView;
 }
 
 @end
