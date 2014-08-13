@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="1416" y="-53"/>
         </scene>
-        <!--View Controller - New Meeting-->
+        <!--Create Meeting View Controller - New Meeting-->
         <scene sceneID="fkb-cL-Dsu">
             <objects>
-                <viewController storyboardIdentifier="newMeeting" title="New Meeting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kYL-zb-1qd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newMeeting" title="New Meeting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kYL-zb-1qd" customClass="BZZCreateMeetingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p8v-Pg-L7e"/>
                         <viewControllerLayoutGuide type="bottom" id="6ZF-Dz-EPx"/>
@@ -136,8 +136,39 @@
                     <view key="view" contentMode="scaleToFill" id="sQs-yH-tk3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meeting Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HlP-qi-2b0" customClass="BZZTextField">
+                                <rect key="frame" x="71" y="122" width="179" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jx-R0-kAe" customClass="BZZTextField">
+                                <rect key="frame" x="71" y="178" width="179" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4zZ-fh-V8z" customClass="BZZTextField">
+                                <rect key="frame" x="71" y="206" width="179" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create New Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFZ-kj-AEc">
+                                <rect key="frame" x="0.0" y="49" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.56047961658596235" blue="0.74251848660961972" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="endTime" destination="4zZ-fh-V8z" id="4nF-Yb-XEJ"/>
+                        <outlet property="startTime" destination="7jx-R0-kAe" id="ZZt-t3-lyg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIi-GN-xaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

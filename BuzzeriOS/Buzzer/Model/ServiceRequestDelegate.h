@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject(ServiceRequestDelegate)
+@interface NSObject (ServiceRequestDelegate)
 - (void)requestCompleted;
 - (void)requestFailed;
 

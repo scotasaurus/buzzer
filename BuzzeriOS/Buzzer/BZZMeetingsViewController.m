@@ -197,10 +197,10 @@
 
 - (IBAction)addMeeting:(id)sender {
     
-//    CGSize size = CGSizeMake(50.0f,50.0f);
-//    [self presentModalViewControllerWithIdentifier:@"newMeeting" andSize:size andModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-//    
-    [self createMeeting:@"test"];
+    CGSize size = CGSizeMake(50.0f,50.0f);
+    [self presentModalViewControllerWithIdentifier:@"newMeeting" andSize:size andModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//
+//    [self createMeeting:@"test"];
     
 //    if ([self createMeeting:@"Test"] )
 //    {
@@ -216,7 +216,7 @@
 {
     if ( meetingID )
     {
-        [_meetingRequest createMeetingAsync:@"Another Random meeting" withDevice:@"7812180c-dbe5-4cc5-9021-bcfe71a00b61"];
+        [_meetingRequest createMeetingAsync:@"GazaCeaseFireInformal" withDevice:@"7812180c-dbe5-4cc5-9021-bcfe71a00b61"];
     }
     return NO; 
 }

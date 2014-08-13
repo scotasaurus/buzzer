@@ -31,6 +31,7 @@
 		25FC96A519885BDB00610EC8 /* MeetingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96A319885BDB00610EC8 /* MeetingRequest.m */; };
 		25FC96B419897DA500610EC8 /* DeviceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96B219897DA500610EC8 /* DeviceRequest.m */; };
 		25FC96B719897E1A00610EC8 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FC96B619897E1A00610EC8 /* Device.m */; };
+		751998D419932D89002500FD /* BZZCreateMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751998D319932D89002500FD /* BZZCreateMeetingViewController.m */; };
 		753809D51989EAF4009F3E20 /* BZZBuzzButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 753809D41989EAF4009F3E20 /* BZZBuzzButton.m */; };
 		7558B89319896B7600611AD4 /* BZZBuzzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7558B89219896B7600611AD4 /* BZZBuzzViewController.m */; };
 		75A26FCA198B2AB200A3B548 /* DeviceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A26FC9198B2AB200A3B548 /* DeviceUtilities.m */; };
@@ -81,6 +82,8 @@
 		25FC96B319897DA500610EC8 /* DeviceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceRequest.h; path = Model/DeviceRequest.h; sourceTree = "<group>"; };
 		25FC96B519897E1A00610EC8 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Device.h; path = Model/Device.h; sourceTree = "<group>"; };
 		25FC96B619897E1A00610EC8 /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Device.m; path = Model/Device.m; sourceTree = "<group>"; };
+		751998D219932D89002500FD /* BZZCreateMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZZCreateMeetingViewController.h; sourceTree = "<group>"; };
+		751998D319932D89002500FD /* BZZCreateMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZZCreateMeetingViewController.m; sourceTree = "<group>"; };
 		753809D31989EAF4009F3E20 /* BZZBuzzButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZZBuzzButton.h; sourceTree = "<group>"; };
 		753809D41989EAF4009F3E20 /* BZZBuzzButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZZBuzzButton.m; sourceTree = "<group>"; };
 		7558B89119896B7600611AD4 /* BZZBuzzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZZBuzzViewController.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				25FC967819882DFB00610EC8 /* BZZWelcomeViewController.m */,
 				25FC967A19882DFB00610EC8 /* BZZMeetingsViewController.h */,
 				25FC967B19882DFB00610EC8 /* BZZMeetingsViewController.m */,
+				751998D219932D89002500FD /* BZZCreateMeetingViewController.h */,
+				751998D319932D89002500FD /* BZZCreateMeetingViewController.m */,
 				7558B89119896B7600611AD4 /* BZZBuzzViewController.h */,
 				7558B89219896B7600611AD4 /* BZZBuzzViewController.m */,
 			);
@@ -344,6 +349,7 @@
 				25FC96A419885BDB00610EC8 /* MeetingRequest.m in Sources */,
 				25FC96B419897DA500610EC8 /* DeviceRequest.m in Sources */,
 				25FC966C19882DFB00610EC8 /* main.m in Sources */,
+				751998D419932D89002500FD /* BZZCreateMeetingViewController.m in Sources */,
 				75A26FCA198B2AB200A3B548 /* DeviceUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

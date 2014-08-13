@@ -91,7 +91,26 @@ static NSString * twoParameterApi = @"%@%@/%@/%@";
     Device *creatorDevice = nil;
     
     // Device data will only be given when calling GetMeeting()
-    NSDictionary *parentDeviceData = sessionData[@"ParentDevice"];
+    
+    //TODO: Workaround -- first init of meetings returns different key value pairings for Parent Device
+    // Parent Device is used in the initial list of meetings
+    // Parent Device ID is used in meetings that were added -- FIX THIS
+    
+    NSDictionary *parentDeviceData = [NSDictionary dictionary];
+    
+    if ( [sessionData objectForKey:@"ParentDevice"] )
+    {
+        parentDeviceData = sessionData[@"ParentDevice"];
+    }
+    else if ( [sessionData objectForKey:@"ParentDeviceId"] )
+    {
+        parentDeviceData = sessionData[@"ParentDeviceId"];
+    }
+    else
+    {
+        return nil;
+    }
+    
     if (![parentDeviceData isKindOfClass:[NSNull class]]) {
         creatorDevice = [[Device alloc] initDevicewithId:parentDeviceData[@"Id"]
                                                           andName:parentDeviceData[@"Name"]
